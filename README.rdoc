@@ -1,7 +1,3 @@
 == README
 
-Ingredients
-Categories
-Dishes
-DishRecipes
-DishRecipeIngredients
+Project Milestone #1, due May 7
