@@ -24,6 +24,5 @@ DishRecipeIngredient:
 
 DishRecipeInstruction:
   dish_recipe_id: integer
-  ingredient_id: integer
   instruction: text
   instruction_order: integer

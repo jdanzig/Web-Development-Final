@@ -30,6 +30,14 @@ gem 'ancestry' # let you create a hierarchy of categories
 gem 'ranked-model' # sort the instructions and keep them sorted
 gem 'simple_enum' # allows pseudo-enum database fields in Rails
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-modernizr'
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-jquery-ui'
+  gem 'rails-assets-bootstrap'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,7 +48,7 @@ gem 'simple_enum' # allows pseudo-enum database fields in Rails
 # gem 'capistrano-rails', group: :development
 
 # Per instruction
-gem 'ez'
+# gem 'ez'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
