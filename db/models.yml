@@ -1,0 +1,29 @@
+Category:
+  name: string
+  ancestry: string
+
+Ingredient:
+  name: string
+  description: string
+  picture: attachment
+
+Dish:
+  category_id: integer
+  name: string
+  picture: attachment
+
+DishRecipe:
+  dish_id: integer
+  description: string
+
+DishRecipeIngredient:
+  dish_recipe_id: integer
+  ingredient_id: integer
+  quantity: integer
+  unit: enum
+
+DishRecipeInstruction:
+  dish_recipe_id: integer
+  ingredient_id: integer
+  instruction: text
+  instruction_order: integer
