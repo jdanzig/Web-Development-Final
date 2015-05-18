@@ -23,12 +23,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'authlogic' # the authentication gem
+gem 'google-api-client', :require => ['google/api_client']
 gem 'simple_form' # simplifies form creation
 gem 'paperclip' # lets you attach images and files
-gem 'seed_dump' # lets you create seed files from live databases
-gem 'ancestry' # let you create a hierarchy of categories
 gem 'ranked-model' # sort the instructions and keep them sorted
-gem 'simple_enum' # allows pseudo-enum database fields in Rails
+gem 'ruby-progressbar' # shows seed progress
+gem 'multi_json' # parse json
+gem 'activevalidators' # add some extra active record validators
+gem 'httparty' # download pictures
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-modernizr'

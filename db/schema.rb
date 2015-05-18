@@ -14,52 +14,72 @@
 ActiveRecord::Schema.define(version: 20150507045600) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "name",     null: false
-    t.string "ancestry", null: false
+    t.string   "name",                 null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
-  add_index "categories", ["name", "ancestry"], name: "index_categories_on_name_and_ancestry", unique: true
-
-  create_table "dish_recipe_ingredients", force: :cascade do |t|
-    t.integer "dish_recipe_id", null: false
-    t.integer "ingredient_id",  null: false
-    t.integer "quantity",       null: false
-    t.integer "unit",           null: false
+  create_table "favoritings", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "user_id",   null: false
   end
 
-  add_index "dish_recipe_ingredients", ["dish_recipe_id", "ingredient_id"], name: "index_dri_on_dr_id_and_i_id", unique: true
+  add_index "favoritings", ["recipe_id", "user_id"], name: "index_favoritings_on_recipe_id_and_user_id", unique: true
 
-  create_table "dish_recipe_instructions", force: :cascade do |t|
-    t.integer "dish_recipe_id",    null: false
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id",   null: false
+    t.string  "description", null: false
+  end
+
+  add_index "recipe_ingredients", ["recipe_id", "description"], name: "index_recipe_ingredients_on_recipe_id_and_description", unique: true
+
+  create_table "recipe_instructions", force: :cascade do |t|
+    t.integer "recipe_id",         null: false
     t.text    "instruction",       null: false
     t.integer "instruction_order", null: false
   end
 
-  add_index "dish_recipe_instructions", ["dish_recipe_id", "instruction_order"], name: "index_dri_on_dr_id_and_io"
+  add_index "recipe_instructions", ["recipe_id", "instruction_order"], name: "index_dri_on_dr_id_and_io"
 
-  create_table "dish_recipes", force: :cascade do |t|
-    t.integer "dish_id",     null: false
-    t.text    "description", null: false
+  create_table "recipe_reviews", force: :cascade do |t|
+    t.integer  "recipe_id",   null: false
+    t.integer  "user_id",     null: false
+    t.integer  "rating",      null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
   end
 
-  create_table "dishes", force: :cascade do |t|
+  add_index "recipe_reviews", ["recipe_id", "created_at"], name: "index_recipe_reviews_on_recipe_id_and_created_at"
+  add_index "recipe_reviews", ["recipe_id", "user_id"], name: "index_recipe_reviews_on_recipe_id_and_user_id", unique: true
+
+  create_table "recipes", force: :cascade do |t|
     t.integer  "category_id",          null: false
     t.string   "name",                 null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.text     "description"
+    t.string   "url"
+    t.string   "quantity_served"
   end
 
-  add_index "dishes", ["category_id", "name"], name: "index_dishes_on_category_id_and_name", unique: true
+  add_index "recipes", ["category_id", "name"], name: "index_recipes_on_category_id_and_name", unique: true
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name",                 null: false
-    t.text     "description"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",                     null: false
+    t.string   "last_name",                      null: false
+    t.string   "email",                          null: false
+    t.string   "persistence_token",              null: false
+    t.integer  "login_count",        default: 0, null: false
+    t.integer  "failed_login_count", default: 0, null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
   end
 
 end
