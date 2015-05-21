@@ -1,28 +1,44 @@
-Category:
+Category
   name: string
-  ancestry: string
-
-Ingredient:
-  name: string
-  description: string
   picture: attachment
 
-Dish:
+Recipe
   category_id: integer
   name: string
   picture: attachment
+  description: text
+  url: string
+  quantity_served: string
 
-DishRecipe:
-  dish_id: integer
+RecipeIngredient
+  recipe_id: integer
   description: string
 
-DishRecipeIngredient:
-  dish_recipe_id: integer
-  ingredient_id: integer
-  quantity: integer
-  unit: enum
-
-DishRecipeInstruction:
-  dish_recipe_id: integer
+RecipeInstruction
+  recipe_id: integer
   instruction: text
   instruction_order: integer
+
+User
+  first_name: string
+  last_name: string
+  email: string
+  persistence_token: string
+  login_count: string
+  failed_login_count: string
+  last_request_at: datetime
+  current_login_at: datetime
+  last_login_at: datetime
+  current_login_ip: string
+  last_login_ip: string
+
+Favoriting
+  recipe_id: integer
+  user_id: integer
+
+RecipeReview
+  recipe_id: integer
+  user_id: integer
+  rating: integer
+  description: text
+  created_at: datetime
