@@ -9,8 +9,15 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :email, :presence => true, :email => true, :uniqueness => true
 
+  scope :local_auth, { where(:uses_oauth => false) }
+  scope :google_auth, { where(:uses_oauth => true) }
+
+  def self.find_by_smart_case_login_field(email)
+    self.class.local_auth.where(:email => email).first
+  end
+
   def require_password?
-    false
+    uses_oauth? && super
   end
 
 end

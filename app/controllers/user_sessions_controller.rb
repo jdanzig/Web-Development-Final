@@ -1,54 +1,34 @@
-# adapted from this URL: https://github.com/google/google-api-ruby-client-samples
+# Adapted from: https://github.com/binarylogic/authlogic_example/blob/master/app/controllers/user_sessions_controller.rb
 
 class UserSessionsController < ApplicationController
 
+  before_action :require_logout, :only => [:new, :create]
+  before_action :require_login, :only => [:destroy]
+  
   def new
-    redirect_to auth_client.authorization.authorization_uri.to_s
+    @user_session = UserSession.new
   end
-
+  
   def create
-    @profile = with_auth_client do |client|
-      client.authorization.code = params[:code]
-      client.authorization.update!
-      tokens = client.authorization.fetch_access_token
-      client.authorization.access_token = tokens['access_token']
-      client.authorization.id_token = tokens['id_token']
-      raise 'Invalid Email' unless client.authorization.decoded_id_token['email_verified']
-      plus = client.discovered_api('plus', 'v1')
-      JSON.parse client.execute!(plus.people.get, :collection => 'visible', :userId => 'me').body
-    end rescue nil
-    if @profile
-      email = @profile['emails'].detect { |e| e['type'] == 'account' }['value']
-      @user = User.where(:email => email).first || User.new(:email => email)
-      @user.first_name = @profile['name']['givenName']
-      @user.last_name = @profile['name']['familyName']
-      @user.save!
-      @user_session = UserSession.create!(@user, true) if @user
+    @user_session = UserSession.new(login_params)
+    if @user_session.save
+      flash[:notice] = "Login successful!"
+      redirect_to root_path
+    else
+      render :action => :new
     end
+  end
+  
+  def destroy
+    current_user_session.destroy
+    flash[:notice] = "Logout successful!"
     redirect_to root_path
   end
 
 private
 
-  def with_auth_client(&block)
-    block.call auth_client
-  end
-
-  def auth_client
-    c = Google::APIClient.new(
-      :application_name => 'webdevfinal',
-      :application_version => '1.0.0',
-      :token_credential_uri => 'https://accounts.google.com/o/oauth2/token',
-      :audience => 'https://accounts.google.com/o/oauth2/token',
-      :scope => [ 'profile', 'email' ]
-    )
-    c.authorization.grant_type = 'authorization_code'
-    c.authorization.client_id = "1068055082975-pindla6dir92jtna3jj9bfvrf47loe61.apps.googleusercontent.com"
-    c.authorization.client_secret = "7jAMkdRBE5abjBOru8FGFa5u"
-    c.authorization.redirect_uri = authenticate_url
-    c.authorization.additional_parameters = { :approval_prompt => 'force', :access_type => 'online' }
-    c.authorization.scope = [ 'profile', 'email' ]
-    c
+  def login_params
+    params.require(:user_session).permit(:email,:password)
   end
 
 end

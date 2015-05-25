@@ -69,12 +69,15 @@ ActiveRecord::Schema.define(version: 20150507045600) do
   add_index "recipes", ["category_id", "name"], name: "index_recipes_on_category_id_and_name", unique: true
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",                     null: false
-    t.string   "last_name",                      null: false
-    t.string   "email",                          null: false
-    t.string   "persistence_token",              null: false
-    t.integer  "login_count",        default: 0, null: false
-    t.integer  "failed_login_count", default: 0, null: false
+    t.string   "first_name",                         null: false
+    t.string   "last_name",                          null: false
+    t.string   "email",                              null: false
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.boolean  "uses_oauth",         default: false, null: false
+    t.string   "persistence_token",                  null: false
+    t.integer  "login_count",        default: 0,     null: false
+    t.integer  "failed_login_count", default: 0,     null: false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"

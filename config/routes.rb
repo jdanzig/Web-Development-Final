@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  root :to => redirect('/ingredients')
-  resources :ingredients
+  root :to => redirect('/categories')
+  resources :categories
 
-  scope :login, :controller => :user_sessions do
-    root :action => :new, :via => [:get], :as => :login
-    get :auth, :action => :create, :as => :authenticate
+  get :login, :to => 'user_sessions#new'
+  post :login, :to => 'user_sessions#create'
+  scope 'login/google', :controller => :user_google_sessions do
+    root :action => :new, :via => [:get], :as => :google_login
+    get :auth, :action => :create, :as => :google_authenticate
   end
+  delete :logout, :to => 'user_sessions#destroy'
 end

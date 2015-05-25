@@ -36,6 +36,9 @@ class Initial < ActiveRecord::Migration
       t.string :first_name, :null => false
       t.string :last_name, :null => false
       t.string :email, :null => false, :unique => true # optional, you can use login instead, or both
+      t.string :crypted_password
+      t.string :password_salt
+      t.boolean :uses_oauth, :null => false, :default => false
       t.string :persistence_token, :null => false # required
       t.integer :login_count, :null => false, :default => 0
       t.integer :failed_login_count, :null => false, :default => 0
