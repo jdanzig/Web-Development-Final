@@ -1,6 +1,6 @@
-== Rubric
+## Rubric
 
-=== Domain Modeling: 8 points
+### Domain Modeling: 8 points
  
 - [ ] At least 5 database-backed models, which must consist of at least 4 domain models plus one User model
 - [ ] A least 1 many-to-many model association
@@ -8,13 +8,13 @@
 - [ ] Model validations as necessary
 - [ ] A proper database seeds file (.rb or .sqlite3)
  
-=== Controllers and Views: 8 points
+### Controllers and Views: 8 points
  
 - [ ] At least one complete, RESTful database-backed resource
 - [ ] Common site navigation throughout
 - [ ] Secure password-based signup/sign-in/sign out functionality
  
-=== Feature Choice: 6 points
+### Feature Choice: 6 points
 **Choose one of the following:**
  
 - [ ] deployed to public url
@@ -25,7 +25,7 @@
 - [ ] OAuth login
 - [ ] Got another idea? Let me now.  I need to approve it no later than week 9.
  
-=== Best Practices (4 pts)
+### Best Practices (4 pts)
 
 - [ ] Follow best practices everywhere
 - [ ] database query limits,
