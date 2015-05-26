@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   root :to => redirect('/categories')
   resources :categories
 
+  resource :user, :except => [:destroy] do
+    post :forgot
+    get :recover
+    put :reset
+    patch :reset
+  end
+
   get :login, :to => 'user_sessions#new'
   post :login, :to => 'user_sessions#create'
   scope 'login/google', :controller => :user_google_sessions do

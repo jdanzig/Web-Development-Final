@@ -1,8 +1,5 @@
 ## To Do
-- [ ] User signup
 - [ ] Site layout
-- [ ] Heroku
-- [ ] Forgot password
 - [ ] Category Controller
 - [ ] Recipe Controller
 - [ ] Recipe Ingredients Controller
@@ -13,6 +10,7 @@
 - [ ] Access restrictions
 - [ ] Navigation
 - [ ] Testing
+- [ ] Add Forgot Password to the login page
 
 ## Rubric
 
@@ -28,25 +26,22 @@
  
 - [ ] At least one complete, RESTful database-backed resource
 - [ ] Common site navigation throughout
-- [ ] Secure password-based signup/sign-in/sign out functionality
+- [x] Secure password-based signup/sign-in/sign out functionality
  
 ### Feature Choice: 6 points
 **Choose one of the following:**
  
-- [ ] OAuth login
+- [x] OAuth login
+- [x] “Forgot Password” functionality via email or SMS verification
 - [ ] proper use of the Bootstrap grid system and components throughout
 - [ ] intelligent use of at least 3 model callbacks
-- [ ] deployed to public url
-- [ ] “Forgot Password” functionality via email or SMS verification
-- [ ] ~~2-Factor SMS Authentication for sign-in~~
-- [ ] Got another idea? Let me now.  I need to approve it no later than week 9.
  
 ### Best Practices (4 pts)
 
 - [x] Follow best practices everywhere
 - [ ] database query limits,
 - [x] SQL injection attack protection
-- [ ] Secure passwords
+- [x] Secure passwords
 - [ ] Pagination
 - [ ] Proper authorization
  

@@ -40,6 +40,7 @@ class Initial < ActiveRecord::Migration
       t.string :password_salt
       t.boolean :uses_oauth, :null => false, :default => false
       t.string :persistence_token, :null => false # required
+      t.string :perishable_token, :null => false # required
       t.integer :login_count, :null => false, :default => 0
       t.integer :failed_login_count, :null => false, :default => 0
       t.datetime :last_request_at
