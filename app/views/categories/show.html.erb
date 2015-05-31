@@ -2,3 +2,4 @@
 <div id="recipes">
   <%= render :partial => 'recipes/item', :collection => @recipes, :as => :recipe %>
 </div>
+<%= paginate @recipes %>

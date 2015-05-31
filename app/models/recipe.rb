@@ -1,4 +1,7 @@
 class Recipe < ActiveRecord::Base
+  paginates_per 3
+
+  default_scope -> { order(:name) }
   belongs_to :category
   has_many :instructions, :class_name => 'RecipeInstruction'
   has_many :ingredients, :class_name => 'RecipeIngredient'

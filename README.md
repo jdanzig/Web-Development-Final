@@ -10,6 +10,8 @@
 - [ ] Add "Log in with Google" button to login page
 - [ ] Create rating action
 - [ ] Create rating form
+- [ ] Make the show recipe view
+- [ ] Increase pagination count (recipe.rb) and to seed file
 
 ## Rubric
 
@@ -23,7 +25,7 @@
  
 ### Controllers and Views: 8 points
  
-- [ ] At least one complete, RESTful database-backed resource
+- [x] At least one complete, RESTful database-backed resource (recipe)
 - [x] Common site navigation throughout
 - [x] Secure password-based signup/sign-in/sign out functionality
  

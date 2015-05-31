@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root :to => 'categories#index'
-  resources :categories, :only => [:show]
-  resources :recipes
+  resources :recipes do
+    collection do
+      resources :categories, :only => [:show]
+    end
+  end
 
   resource :user, :except => [:destroy] do
     post :forgot
