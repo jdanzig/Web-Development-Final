@@ -1,15 +1,13 @@
 <h1>Meal Categories</h1>
-<p>
-You are <%= 'not' unless logged_in? %> logged in.
-<% if logged_in? %>
-  Hi <%= current_user.first_name %> <%= current_user.last_name %>!
-<% end %>
-</p>
-
-<p>
-<% if logged_in? %>
-  <%= button_to 'Log out', logout_path, :method => :delete %>
-<% else %>
-  <%= button_to 'Log in', login_path, :method => :get %>
-<% end %>
-</p>
+<div class="flexslider">
+  <ul class="slides">
+    <% @categories.each do |c| %>
+    <li>
+      <%= link_to category_path(c) do %>
+        <%= image_tag c.picture.url %>
+        <p class="flex-caption"><%= c.name %></p>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</div>

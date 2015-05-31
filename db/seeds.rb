@@ -13,6 +13,7 @@ records.each_with_index do |record,idx|
   category = Category.where(:name => record[:category]).first
   if !category
     category = Category.new(:name => record[:category])
+    category.picture = File.open(Rails.root.join('private','category_images',"#{record[:category].underscore.downcase}.jpg"),'rb')
     category.save!
   end
   recipe = Recipe.new({

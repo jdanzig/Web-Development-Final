@@ -1,3 +1,4 @@
+<h2>Log in</h2>
 <%= simple_form_for @user_session, :url => login_path do |f| %>
   <%= f.error_notification %>
 
@@ -7,6 +8,16 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Log in' %>
+  </div>
+<% end %>
+<hr>
+<h4>Forgot password?</h4>
+<%= simple_form_for @user, :url => forgot_user_path do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, 'Reset Password' %>
   </div>
 <% end %>

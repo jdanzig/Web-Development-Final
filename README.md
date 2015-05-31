@@ -8,9 +8,8 @@
 - [ ] Favoriting Controller
 - [ ] Pagination
 - [ ] Access restrictions
-- [ ] Navigation
 - [ ] Testing
-- [ ] Add Forgot Password to the login page
+- [ ] Add "Log in with Google" button to login page
 
 ## Rubric
 
@@ -25,7 +24,7 @@
 ### Controllers and Views: 8 points
  
 - [ ] At least one complete, RESTful database-backed resource
-- [ ] Common site navigation throughout
+- [x] Common site navigation throughout
 - [x] Secure password-based signup/sign-in/sign out functionality
  
 ### Feature Choice: 6 points
@@ -42,7 +41,7 @@
 - [ ] database query limits,
 - [x] SQL injection attack protection
 - [x] Secure passwords
-- [ ] Pagination
+- [x] Pagination
 - [ ] Proper authorization
  
 *Included in these 4 points are also my subjective opinion of your code, including readability and creativity.*
