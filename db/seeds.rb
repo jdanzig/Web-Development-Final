@@ -22,10 +22,8 @@ records.each_with_index do |record,idx|
     :url => record[:url],
     :quantity_served => record[:recipeYield],
     :description => record[:description],
+    :ingredients => record[:ingredients]
   })
-  record[:ingredients].to_s.strip.split("\n").map!(&:strip).reject(&:blank?).each do |ingredient|
-    recipe.ingredients.build(:description => ingredient)
-  end
   if record[:image]
     begin
       img = HTTParty.get(record[:image])

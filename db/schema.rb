@@ -28,21 +28,6 @@ ActiveRecord::Schema.define(version: 20150507045600) do
 
   add_index "favoritings", ["recipe_id", "user_id"], name: "index_favoritings_on_recipe_id_and_user_id", unique: true
 
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id",   null: false
-    t.string  "description", null: false
-  end
-
-  add_index "recipe_ingredients", ["recipe_id", "description"], name: "index_recipe_ingredients_on_recipe_id_and_description", unique: true
-
-  create_table "recipe_instructions", force: :cascade do |t|
-    t.integer "recipe_id",         null: false
-    t.text    "instruction",       null: false
-    t.integer "instruction_order", null: false
-  end
-
-  add_index "recipe_instructions", ["recipe_id", "instruction_order"], name: "index_dri_on_dr_id_and_io"
-
   create_table "recipe_reviews", force: :cascade do |t|
     t.integer  "recipe_id",   null: false
     t.integer  "user_id",     null: false
@@ -62,6 +47,8 @@ ActiveRecord::Schema.define(version: 20150507045600) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.text     "description"
+    t.text     "ingredients",          null: false
+    t.text     "instructions"
     t.string   "url"
     t.string   "quantity_served"
   end
@@ -76,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150507045600) do
     t.string   "password_salt"
     t.boolean  "uses_oauth",         default: false, null: false
     t.string   "persistence_token",                  null: false
+    t.string   "perishable_token",                   null: false
     t.integer  "login_count",        default: 0,     null: false
     t.integer  "failed_login_count", default: 0,     null: false
     t.datetime "last_request_at"

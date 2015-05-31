@@ -1,10 +1,7 @@
 ## To Do
 - [ ] Site layout
-- [ ] Recipe Ingredients Controller
 - [ ] Recipe Reviews Controller
-- [ ] Recipe Instructions Controller
 - [ ] Favoriting Controller
-- [ ] Pagination
 - [ ] Access restrictions
 - [ ] Testing
 - [ ] Add "Log in with Google" button to login page

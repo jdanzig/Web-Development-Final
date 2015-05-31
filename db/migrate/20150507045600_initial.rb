@@ -10,26 +10,13 @@ class Initial < ActiveRecord::Migration
       t.string :name, :null => false
       t.attachment :picture
       t.text :description
+      t.text :ingredients, :null => false
+      t.text :instructions
       t.string :url
       t.string :quantity_served
     end
     add_index :recipes, [:category_id, :name], :unique => true
     add_foreign_key :recipes, :categories
-
-    create_table :recipe_ingredients do |t|
-      t.integer :recipe_id, :null => false
-      t.string :description, :null => false
-    end
-    add_index :recipe_ingredients, [:recipe_id, :description], :unique => true
-    add_foreign_key :recipe_ingredients, :recipes
-    
-    create_table :recipe_instructions do |t|
-      t.integer :recipe_id, :null => false
-      t.text :instruction, :null => false
-      t.integer :instruction_order, :null => false
-    end
-    add_index :recipe_instructions, [:recipe_id, :instruction_order], :name => 'index_dri_on_dr_id_and_io'
-    add_foreign_key :recipe_instructions, :recipes
 
     create_table :users do |t|
       # From https://github.com/binarylogic/authlogic_example/tree/master

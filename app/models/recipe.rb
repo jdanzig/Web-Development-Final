@@ -3,8 +3,6 @@ class Recipe < ActiveRecord::Base
 
   default_scope -> { order(:name) }
   belongs_to :category
-  has_many :instructions, :class_name => 'RecipeInstruction'
-  has_many :ingredients, :class_name => 'RecipeIngredient'
   has_many :favoritings # A favoriting relationship
   has_many :favoriters, :class_name => 'User', :through => :favoritings, :source => :user
   has_many :reviews, :class_name => 'RecipeReview'
@@ -15,6 +13,7 @@ class Recipe < ActiveRecord::Base
   has_attached_file :picture
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :quantity_served, :presence => true
-  validates :url, :presence => true, :url => true, :if => ->(recipe) { recipe.instructions.empty? }
-  validates :instructions, :length => {:minimum => 1}, :unless => :url?
+  validates :ingredients, :presence => true
+  validates :url, :presence => true, :url => true, :unless => :instructions?
+  validates :instructions, :presence => true, :unless => :url?
 end

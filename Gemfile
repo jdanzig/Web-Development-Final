@@ -13,7 +13,6 @@ gem 'authlogic' # the authentication gem
 gem 'google-api-client', :require => ['google/api_client']
 gem 'simple_form' # simplifies form creation
 gem 'paperclip' # lets you attach images and files
-gem 'ranked-model' # sort the instructions and keep them sorted
 gem 'ruby-progressbar' # shows seed progress
 gem 'multi_json' # parse json
 gem 'activevalidators' # add some extra active record validators
