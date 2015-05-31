@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root :to => redirect('/categories')
-  resources :categories
+  root :to => 'categories#index'
+  resources :categories, :only => [:show]
+  resources :recipes
 
   resource :user, :except => [:destroy] do
     post :forgot

@@ -4,7 +4,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, :class_name => 'RecipeIngredient'
   has_many :favoritings # A favoriting relationship
   has_many :favoriters, :class_name => 'User', :through => :favoritings, :source => :user
-  has_many :reviews
+  has_many :reviews, :class_name => 'RecipeReview'
   has_many :reviewers, :class_name => 'User', :through => :reviews, :source => :user
   
   validates :name, :presence => true, :uniqueness => {:scope => :category_id}

@@ -1,7 +1,5 @@
 ## To Do
 - [ ] Site layout
-- [ ] Category Controller
-- [ ] Recipe Controller
 - [ ] Recipe Ingredients Controller
 - [ ] Recipe Reviews Controller
 - [ ] Recipe Instructions Controller
@@ -10,6 +8,8 @@
 - [ ] Access restrictions
 - [ ] Testing
 - [ ] Add "Log in with Google" button to login page
+- [ ] Create rating action
+- [ ] Create rating form
 
 ## Rubric
 

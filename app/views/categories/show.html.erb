@@ -1,0 +1,4 @@
+<h2><%= @category.name %></h2>
+<div id="recipes">
+  <%= render :partial => 'recipes/item', :collection => @recipes, :as => :recipe %>
+</div>
