@@ -11,6 +11,9 @@
     <%= f.button :submit, 'Log in' %>
   </div>
 <% end %>
+
+<h3>OR: <%= link_to "Log in with Google", google_login_path %></h3>
+
 <hr>
 <h4>Forgot password?</h4>
 <%= simple_form_for @user, :url => forgot_user_path do |f| %>

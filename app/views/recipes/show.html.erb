@@ -1,4 +1,4 @@
-<h2><%= @recipe.name %><%= favorite_recipe_icon(logged_in? && current_user.favorite_recipes.include?(@recipe)) %></h2>
+<h2><%= @recipe.name %><%= favorite_recipe_icon(logged_in? && current_user.favorite_recipes.include?(@recipe)) if logged_in? %></h2>
 <div id="recipe">
   <div><p><%= @recipe.description %></p></div>
   <%= image_tag @recipe.picture, :height => 225 %>

@@ -1,8 +1,8 @@
 ## To Do
 - [ ] Testing
-- [ ] Add "Log in with Google" button on login page <h3>link_to "Log in with Google", google_login_path</h3>
-- [ ] My Profile Header Navbar Link. Change home to categories, then All Recipes, then Submit Recipe APP VIEWS LAYOUTS
-- [ ] Hide Favorite and Submit Rating Form if not logged in logged in?, if logged out? (if block of relevant views)
+- [ ] Logging in with Google in new user session - "Error: redirect_uri_mismatch"
+- [ ] Hide Favorite (show.html.erb) and Submit Rating Form (recipe_reviews) if not logged in logged in?, if logged out? (if block of relevant views)
+- [ ] Favorites aren't favoriting; Errors in clicking categories in index page; Can't click to All Recipes
 
 ## Rubric
 
