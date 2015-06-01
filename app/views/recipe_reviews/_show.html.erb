@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     
-    <h3 class="panel-title"><%= stars review.rating %><%= review.created_at.strftime(' %a, %b %e, %Y at %l:%M %p') %></h3>
+    <h3 class="panel-title"><%= stars review.rating %><%= review.created_at.strftime(' %a, %b %e, %Y at %l:%M %p') %> by <%= review.user.first_name %> <%= review.user.last_name %></h3>
   </div>
   <div class="panel-body"><%= review.description %></div>
 </div>

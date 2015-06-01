@@ -1,14 +1,8 @@
 ## To Do
-- [ ] Site layout
-- [ ]  Recipe Reviews Controller
-- [ ]  Do the review form and the show review thing
-- [ ]  Create rating form
-- [ ] Access restrictions
 - [ ] Testing
-- [ ] Add "Log in with Google" button to login page
-- [ ] Create rating action
-- [ ] Increase pagination count (recipe.rb) and to seed file
-- [ ] My Profile Header Navbar Link
+- [ ] Add "Log in with Google" button on login page <h3>link_to "Log in with Google", google_login_path</h3>
+- [ ] My Profile Header Navbar Link. Change home to categories, then All Recipes, then Submit Recipe APP VIEWS LAYOUTS
+- [ ] Hide Favorite and Submit Rating Form if not logged in logged in?, if logged out? (if block of relevant views)
 
 ## Rubric
 
@@ -41,6 +35,6 @@
 - [x] SQL injection attack protection
 - [x] Secure passwords
 - [x] Pagination
-- [ ] Proper authorization
+- [x] Proper authorization
  
 *Included in these 4 points are also my subjective opinion of your code, including readability and creativity.*

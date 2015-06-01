@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150507045600) do
   end
 
   add_index "recipe_reviews", ["recipe_id", "created_at"], name: "index_recipe_reviews_on_recipe_id_and_created_at"
-  add_index "recipe_reviews", ["recipe_id", "user_id"], name: "index_recipe_reviews_on_recipe_id_and_user_id", unique: true
 
   create_table "recipes", force: :cascade do |t|
     t.integer  "category_id",          null: false

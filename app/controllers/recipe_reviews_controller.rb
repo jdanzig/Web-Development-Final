@@ -3,7 +3,7 @@ class RecipeReviewsController < ApplicationController
 
   def create
     @recipe_review = @recipe.reviews.build(recipe_review_params)
-    @recipe_review.user = current_user
+    @recipe_review.user_id = current_user.id
     @saved = @recipe_review.save
     respond_to(:js)
   end

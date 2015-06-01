@@ -1,5 +1,5 @@
 <%= simple_form_for recipe_review, :url => recipe_reviews_path(recipe_review.recipe), :remote => true do |f| %>
-  <%= f.error_notification %>
+  <%= f.error_notification :message => recipe_review.errors.inspect %>
 
   <div class="form-inputs">
     <%= f.input :rating %>
