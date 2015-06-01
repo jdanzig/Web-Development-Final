@@ -29,6 +29,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-select2'
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-davegudge--FlexSlider' # slider
+  gem 'rails-assets-ionrangeslider' # 5 star review perkiness
 end
 
 group :development, :test do

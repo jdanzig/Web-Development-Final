@@ -24,4 +24,13 @@ module ApplicationHelper
     arr.join.html_safe
   end
 
+  def nl2br(str)
+   str.gsub(/\r\n|\r|\n/, "<br />").html_safe
+  end
+
+  def favorite_recipe_icon(is_favorite = false)
+    content_tag :div, :class => 'favorite-icon', :data => { 'current' => !!is_favorite } do
+    end
+  end
+
 end

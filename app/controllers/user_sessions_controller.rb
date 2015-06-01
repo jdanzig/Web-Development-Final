@@ -11,6 +11,7 @@ class UserSessionsController < ApplicationController
   end
   
   def create
+    @user = User.new
     @user_session = UserSession.new(login_params)
     if @user_session.save
       flash[:notice] = "Login successful!"

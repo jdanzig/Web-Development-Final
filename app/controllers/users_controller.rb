@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to user_edit_path
   end
 
   def edit

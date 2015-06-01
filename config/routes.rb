@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     collection do
       resources :categories, :only => [:show]
     end
+    resource :favorite, :only => [:create, :destroy]
+    resources :recipe_reviews, :path => 'reviews', :as => :reviews, :only => [:create]
   end
 
   resource :user, :except => [:destroy] do

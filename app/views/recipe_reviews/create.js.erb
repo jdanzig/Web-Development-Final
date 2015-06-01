@@ -1,0 +1,6 @@
+<% if @saved %>
+  $('form#new_recipe_review').reset();
+  $('div#reviews').prepend("<%= escape_javascript render :partial => 'recipe_reviews/show', :locals => { :review => @recipe_review } %>");
+<% else %>
+  $('form#new_recipe_review').html("<%= escape_javascript render :partial => 'recipe_reviews/form', :locals => { :recipe_review => @recipe_review } %>");
+<% end %>

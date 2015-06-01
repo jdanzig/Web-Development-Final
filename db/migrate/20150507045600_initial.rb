@@ -52,9 +52,7 @@ class Initial < ActiveRecord::Migration
       t.text :description
       t.datetime :created_at, :null => false
     end
-    add_index :recipe_reviews, [:recipe_id, :user_id], :unique => true
     add_index :recipe_reviews, [:recipe_id, :created_at], :unique => false, :order => {:recipe_id => :asc, :created_at => :desc}
     add_foreign_key :recipe_reviews, :recipes
-    add_foreign_key :recipe_reviews, :users 
   end
 end

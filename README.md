@@ -1,14 +1,14 @@
 ## To Do
 - [ ] Site layout
-- [ ] Recipe Reviews Controller
-- [ ] Favoriting Controller
+- [ ]  Recipe Reviews Controller
+- [ ]  Do the review form and the show review thing
+- [ ]  Create rating form
 - [ ] Access restrictions
 - [ ] Testing
 - [ ] Add "Log in with Google" button to login page
 - [ ] Create rating action
-- [ ] Create rating form
-- [ ] Make the show recipe view
 - [ ] Increase pagination count (recipe.rb) and to seed file
+- [ ] My Profile Header Navbar Link
 
 ## Rubric
 
@@ -37,7 +37,7 @@
 ### Best Practices (4 pts)
 
 - [x] Follow best practices everywhere
-- [ ] database query limits,
+- [x] database query limits,
 - [x] SQL injection attack protection
 - [x] Secure passwords
 - [x] Pagination

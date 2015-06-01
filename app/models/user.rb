@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :favoritings
-  has_many :favorite_recipes, :through => :favoritings, :source => :recipes, :class_name => 'Recipe'
+  has_many :favorite_recipes, :through => :favoritings, :source => :recipe, :class_name => 'Recipe'
   has_many :reviews
-  has_many :reviewed_recipes, :through => :reviews, :source => :recipes, :class_name => 'Recipe'
+  has_many :reviewed_recipes, :through => :reviews, :source => :recipe, :class_name => 'Recipe'
   acts_as_authentic do |aaa|
     aaa.perishable_token_valid_for 1.day
   end
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   scope :with_email, ->(email) { where(:email => email) }
 
   def self.find_by_smart_case_login_field(email)
-    self.class.local_auth.with_email(email).first
+    self.local_auth.with_email(email).first
   end
 
   def require_password?

@@ -1,0 +1,7 @@
+<h2>Welcome, <%= current_user.first_name %></h2>
+<h4>Favorite Recipes</h4>
+<ul>
+  <% current_user.favorite_recipes.each do |r| %>
+    <li><%= link_to r.name, recipe_path(r) %></li>
+  <% end %>
+</ul>

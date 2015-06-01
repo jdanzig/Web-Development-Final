@@ -1,0 +1,18 @@
+<h2><%= @recipe.name %><%= favorite_recipe_icon(logged_in? && current_user.favorite_recipes.include?(@recipe)) %></h2>
+<div id="recipe">
+  <div><p><%= @recipe.description %></p></div>
+  <%= image_tag @recipe.picture, :height => 225 %>
+  <h4>Ingredients</h4>
+  <p><%= nl2br @recipe.ingredients %></p>
+  <h4>Instructions</h4>
+  <p><%= nl2br @recipe.instructions || link_to(@recipe.url, @recipe.url) %></p>
+  <p><strong>Quantity Served:</strong> <%= @recipe.quantity_served %></p>
+
+</div>
+
+<br clear="all">
+<h3>Write a Review</h3>
+
+<%= render :partial => 'recipe_reviews/form', :locals => { :recipe_review => @recipe_review } %> 
+<hr>
+<div id="reviews"><%= render :partial => 'recipe_reviews/show', :collection => @recipe.reviews.select(&:persisted?), :as => :review %></div>
