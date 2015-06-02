@@ -2,9 +2,6 @@
 **The free recipe database that anyone can edit, destroy, or fill with spam.**
 *Registration Required*
 
-## To Do
-- [ ] Crop Photos (private/category_images)
-
 ## Rubric
 
 ### Domain Modeling: 8 points
