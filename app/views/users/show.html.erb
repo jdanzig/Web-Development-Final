@@ -1,4 +1,4 @@
-<h2>Welcome, <%= current_user.first_name %></h2>
+<h2>Welcome, <%= current_user.first_name %> <%= edit_user_button %></h2>
 <h4>Favorite Recipes</h4>
 <ul>
   <% current_user.favorite_recipes.each do |r| %>

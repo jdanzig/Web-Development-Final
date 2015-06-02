@@ -25,6 +25,11 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
+    if @user.uses_oauth?
+      flash[:alert] = 'User data not locally managed.'
+      redirect_to user_path
+      return
+    end
     if @user.update(user_params)
       flash[:notice] = 'User was successfully updated.'
     end
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Password recovery email sent.'
       redirect_to root_path
     else
-      flash[:error] = 'No user with this email exists.'
+      flash[:alert] = 'No user with this email exists.'
       redirect_to login_path
     end
   end
@@ -51,7 +56,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'You have authenticated via the link in your email. ' +
         'Change your password immediately for continued access to your account.'
     else
-      flash[:error] = 'Invalid token.'  
+      flash[:alert] = 'Invalid token.'  
       redirect_to root_path
     end
   end
@@ -60,7 +65,7 @@ class UsersController < ApplicationController
     @token = params[:token]
     @user = User.local_auth.find_using_perishable_token @token
     if !@user
-      flash[:error] = 'Invalid token.'  
+      flash[:alert] = 'Invalid token.'  
       redirect_to root_path
     elsif !@user.update(reset_params)
       render :recover

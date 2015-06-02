@@ -24,7 +24,7 @@ private
 
   def require_login
     unless logged_in?
-      flash[:error] = 'You must be logged in to access this page.'
+      flash[:alert] = 'You must be logged in to access this page.'
       redirect_to login_path
     end
   end
@@ -33,7 +33,7 @@ private
     if logged_out?
       require_login
     else
-      flash[:error] = "Insufficient permissions."
+      flash[:alert] = "Insufficient permissions."
       redirect_to root_path
     end
   end
@@ -41,7 +41,7 @@ private
 
   def require_logout
     unless logged_out?
-      flash[:error] = 'You must be logged out to access this page.'
+      flash[:alert] = 'You must be logged out to access this page.'
       redirect_to root_path
     end
   end
