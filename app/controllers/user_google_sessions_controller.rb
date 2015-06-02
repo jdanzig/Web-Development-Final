@@ -21,7 +21,7 @@ class UserGoogleSessionsController < ApplicationController
     end rescue nil
     if @profile
       email = @profile['emails'].detect { |e| e['type'] == 'account' }['value']
-      @user = User.where(:email => email).first || User.new(:email => email)
+      @user = User.where(:email => email).first || User.new(:email => email, :uses_oauth => true)
       @user.first_name = @profile['name']['givenName']
       @user.last_name = @profile['name']['familyName']
       @user.save!

@@ -1,6 +1,8 @@
 // With help from the jQuery API
 //= require tooltipsy.source
 //= require ionrangeslider
+//= require select2
+//= require bootstrap-touchspin/src/jquery.bootstrap-touchspin
 
 // Taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat#Polyfill
 if (!String.prototype.repeat) {
@@ -46,6 +48,7 @@ if (!String.prototype.repeat) {
 }
 
 $(function() {
+  $('i.crud').tooltipsy();
   $('div.favorite-icon').each(function() {
     $(this).append($('<i/>'));
 
@@ -91,5 +94,18 @@ $(function() {
     prettify: function(num) {
       return '<i class="fa fa-star"></i>'.repeat(num);
     }
-  })
+  });
+
+  $('select#recipe_category').select2();
+
+  $('input#recipe_quantity_served').TouchSpin({
+    min: 1,
+    max: 1000,
+    step: 1,
+    boostat: 5,
+    maxboostedstep: 50,
+    decimals: 0,
+    postfix: 'people'
+  });
+
 });

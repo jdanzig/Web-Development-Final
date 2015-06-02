@@ -163,6 +163,9 @@ GEM
       sprockets-rails
     rails-assets-bootstrap (3.3.4)
       rails-assets-jquery (>= 1.9.1)
+    rails-assets-bootstrap-touchspin (3.0.1)
+      rails-assets-bootstrap (>= 3.0.0)
+      rails-assets-jquery (>= 1.9.0)
     rails-assets-davegudge--FlexSlider (2.4.0)
       rails-assets-jquery (>= 1.4.2)
     rails-assets-fontawesome (4.3.0)
@@ -245,6 +248,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.1)
   rails-assets-bootstrap!
+  rails-assets-bootstrap-touchspin!
   rails-assets-davegudge--FlexSlider!
   rails-assets-fontawesome!
   rails-assets-ionrangeslider!

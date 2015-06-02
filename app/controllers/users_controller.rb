@@ -84,4 +84,8 @@ private
     params.require(:user).permit(:password, :password_confirmation)
   end
 
+  def forgot_params
+    params.require(:user).permit(:email)
+  end
+
 end

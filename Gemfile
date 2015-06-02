@@ -30,6 +30,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-davegudge--FlexSlider' # slider
   gem 'rails-assets-ionrangeslider' # 5 star review perkiness
+  gem 'rails-assets-bootstrap-touchspin'
 end
 
 group :development, :test do

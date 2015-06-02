@@ -1,4 +1,11 @@
-<h2><%= @recipe.name %><%= favorite_recipe_icon(logged_in? && current_user.favorite_recipes.include?(@recipe)) if logged_in? %></h2>
+<h2>
+  <%= @recipe.name %>
+  <% if logged_in? %>
+    <%= favorite_recipe_icon(current_user.favorite_recipes.include?(@recipe)) %>
+    <%= edit_recipe_button @recipe %>
+    <%= delete_recipe_button @recipe %>
+  <% end %>
+</h2>
 <div id="recipe">
   <div><p><%= @recipe.description %></p></div>
   <%= image_tag @recipe.picture, :height => 225 %>
@@ -11,8 +18,11 @@
 </div>
 
 <br clear="all">
-<h3>Write a Review</h3>
-
-<%= render :partial => 'recipe_reviews/form', :locals => { :recipe_review => @recipe_review } %> 
+<% if logged_in? %>
+  <h3>Write a Review</h3>
+  <%= render :partial => 'recipe_reviews/form', :locals => { :recipe_review => @recipe_review } %> 
+<% else %>
+  <h4><%= link_to 'Log in', login_path %> to write a review!</h4>
+<% end %>
 <hr>
 <div id="reviews"><%= render :partial => 'recipe_reviews/show', :collection => @recipe.reviews.select(&:persisted?), :as => :review %></div>

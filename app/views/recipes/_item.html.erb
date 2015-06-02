@@ -3,7 +3,7 @@
     <%= image_tag recipe.picture.url, :class => [:halo] if recipe.picture? %>
     <%= image_tag 'http://placehold.it/150x120&text=No+Image' unless recipe.picture? %>
     <div class="recipe-rating">
-      <%= stars recipe.reviews.map(&:rating).average %><span><%= recipe.reviews.count if recipe.reviews.count > 0 %></span>
+      <%= stars recipe.reviews.map(&:rating).average %><span><%= recipe.reviews.count %></span>
     </div>
     <div class="recipe-name"><%= recipe.name %></div>
   <% end %>

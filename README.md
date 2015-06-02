@@ -1,8 +1,5 @@
 ## To Do
-- [ ] Testing
-- [ ] Logging in with Google in new user session - "Error: redirect_uri_mismatch"
-- [ ] Hide Favorite (show.html.erb) and Submit Rating Form (recipe_reviews) if not logged in logged in?, if logged out? (if block of relevant views)
-- [ ] Favorites aren't favoriting; Errors in clicking categories in index page; Can't click to All Recipes
+- [ ] Crop Photos (private/category_images)
 
 ## Rubric
 
@@ -25,8 +22,6 @@
  
 - [x] OAuth login
 - [x] “Forgot Password” functionality via email or SMS verification
-- [ ] proper use of the Bootstrap grid system and components throughout
-- [ ] intelligent use of at least 3 model callbacks
  
 ### Best Practices (4 pts)
 

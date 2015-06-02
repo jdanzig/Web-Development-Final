@@ -1,5 +1,6 @@
 /*
   *= require ionrangeslider
+  *= require bootstrap-touchspin/src/jquery.bootstrap-touchspin
 */
 
 div#recipes {
@@ -23,8 +24,14 @@ div#recipes {
     }
     div.recipe-rating {
       color: #000;
+      span:before {
+        content: '(';
+      }
       span {
-
+        margin-left: 3px;
+      }
+      span:after {
+        content: ')';
       }
     }
     div.recipe-name {
